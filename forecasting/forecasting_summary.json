@@ -1,0 +1,45 @@
+{
+  "network_test_months": 4,
+  "network_best_model": "ARIMA",
+  "network_model_comparison": [
+    {
+      "model": "ARIMA",
+      "MAE": 178849.92738286033,
+      "RMSE": 229223.85632795782,
+      "MAPE_pct": 0.23805454779760857
+    },
+    {
+      "model": "Naive",
+      "MAE": 179209.69249999896,
+      "RMSE": 229627.14964923274,
+      "MAPE_pct": 0.23853317703436114
+    },
+    {
+      "model": "3M_Moving_Average",
+      "MAE": 378798.8458333351,
+      "RMSE": 405093.9145121211,
+      "MAPE_pct": 0.503786146028139
+    },
+    {
+      "model": "Holt_Trend",
+      "MAE": 835476.6835208908,
+      "RMSE": 846172.0466951487,
+      "MAPE_pct": 1.110677550414471
+    }
+  ],
+  "selected_towers": [
+    "T0465",
+    "T0073",
+    "T0241",
+    "T0297",
+    "T0090",
+    "T0009",
+    "T0418",
+    "T0377",
+    "T0113",
+    "T0497"
+  ],
+  "future_horizon_months": 4,
+  "risk_high": 2,
+  "risk_watch": 4
+}

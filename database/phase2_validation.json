@@ -1,0 +1,8 @@
+{
+  "raw_rows": 12120,
+  "clean_rows": 12000,
+  "quality_flagged_rows": 496,
+  "remaining_null_revenue": 0,
+  "remaining_null_tenants": 0,
+  "remaining_null_downtime": 0
+}

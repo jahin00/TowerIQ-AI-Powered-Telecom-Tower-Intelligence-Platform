@@ -1,0 +1,11 @@
+{
+  "phase": 5,
+  "tables": {
+    "DimRegion": 8,
+    "DimTower": 500,
+    "DimDate": 24,
+    "FactTowerMonthly": 12000,
+    "FactNetworkForecast": 4,
+    "FactTowerForecast": 40
+  }
+}

@@ -1,0 +1,21 @@
+Total Revenue = SUM ( FactTowerMonthly[revenue] )
+Operating Cost = SUM ( FactTowerMonthly[operating_cost] )
+Operating Margin = [Total Revenue] - [Operating Cost]
+Operating Margin % = DIVIDE ( [Operating Margin], [Total Revenue] )
+Active Tenants = SUM ( FactTowerMonthly[active_tenants] )
+Available Slots = SUM ( FactTowerMonthly[available_slots] )
+Tenancy Rate = DIVIDE ( [Active Tenants], [Available Slots] )
+Average Downtime = AVERAGE ( FactTowerMonthly[downtime_hours] )
+Total Incidents = SUM ( FactTowerMonthly[incidents] )
+Maintenance Cost = SUM ( FactTowerMonthly[maintenance_cost] )
+Revenue per Tenant = DIVIDE ( [Total Revenue], [Active Tenants] )
+Tower Count = DISTINCTCOUNT ( DimTower[tower_id] )
+At Risk Towers = CALCULATE ( DISTINCTCOUNT ( DimTower[tower_id] ), FILTER ( VALUES ( DimTower[tower_id] ), CALCULATE ( MAX ( FactTowerMonthly[risk_band] ) ) IN { "At Risk", "Critical" } ) )
+Critical Towers = CALCULATE ( DISTINCTCOUNT ( DimTower[tower_id] ), FILTER ( VALUES ( DimTower[tower_id] ), CALCULATE ( MAX ( FactTowerMonthly[risk_band] ) ) = "Critical" ) )
+Revenue Previous Month = CALCULATE ( [Total Revenue], DATEADD ( DimDate[date_key], -1, MONTH ) )
+Revenue MoM % = DIVIDE ( [Total Revenue] - [Revenue Previous Month], [Revenue Previous Month] )
+Tenancy Previous Month = CALCULATE ( [Tenancy Rate], DATEADD ( DimDate[date_key], -1, MONTH ) )
+Tenancy MoM Change = [Tenancy Rate] - [Tenancy Previous Month]
+Downtime Previous Month = CALCULATE ( [Average Downtime], DATEADD ( DimDate[date_key], -1, MONTH ) )
+Downtime MoM Change = [Average Downtime] - [Downtime Previous Month]
+Forecast Revenue = SUM ( FactNetworkForecast[forecast_revenue] )
